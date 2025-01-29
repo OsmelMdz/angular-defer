@@ -59,7 +59,21 @@
         </div>
         <div class="card-body">
           <!-- 'app-defer' es el componente encargado de mostrar los productos de forma diferida -->
+          @defer(on timer(6000ms)) {
           <app-defer></app-defer>
+          }
+          @placeholder {
+          <!-- Este spinner se muestra temporalmente hasta que se cargue el componente -->
+          <div class="spinner-container">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+            <p class="alert">Mostrando productos en breve...</p>
+          </div>
+          }
+          @error {
+          <!-- Este mensaje se muestra si ocurre un error al cargar el componente -->
+          <p>No se pudieron cargar los productos. Intenta de nuevo más tarde.</p>
+          }
         </div>
       </div>
     </div>
