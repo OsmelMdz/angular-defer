@@ -1,27 +1,40 @@
 # AngularDeferDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+Este proyecto ha sido generado con Angular CLI versión 19.1.4.
 
-## Development server
+## Dependencias
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular CLI**: 19.1.4
+- **Node.js**: 20.9.0
+- **npm**: 10.9.0
+- **rxjs**: 7.8.1
+- **TypeScript**: 5.5.4
+- **Bootstrap**: Instalado con `npm install bootstrap`
+- **ESLint**: Configurado con `@angular-eslint/schematics` para mantener el código limpio y consistente.
 
-## Code scaffolding
+## Instalación
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clona el repositorio:
+```git clone https://github.com/OsmelMdz/angular-defer.git```
 
-## Build
+2. Navega a la carpeta del proyecto:
+```cd angular-defer-demo```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Instala las dependencias:
+```npm install```
 
-## Running unit tests
+4. Instala Bootstrap para los estilos:
+```npm install bootstrap```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Desarrollo
 
-## Running end-to-end tests
+Una vez instaladas las dependencias, puedes comenzar el desarrollo.
+Para ejecutar el servidor de desarrollo, usa el siguiente comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ng serve```
 
-## Further help
+La aplicación estará disponible en [http://localhost:4200/](http://localhost:4200/). El servidor se recargará automáticamente cuando realices cambios en los archivos fuente.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Licencia
+
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
