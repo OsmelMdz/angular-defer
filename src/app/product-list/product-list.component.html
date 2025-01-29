@@ -1,0 +1,29 @@
+<h1 class="title">Lista de Productos</h1>
+
+<div class="center">
+  <button class="btn" (click)="loadProducts()">Cargar productos</button>
+</div>
+
+<ng-container *defer [deferTrigger]="products$">
+  <!-- Placeholder: Antes de iniciar la carga -->
+  <ng-template defer:placeholder>
+    <p class="text-muted">Haz clic en "Cargar productos" para ver la lista.</p>
+  </ng-template>
+
+  <!-- Loading: Mientras se está cargando -->
+  <ng-template defer:loading>
+    <p class="text-info">Cargando productos, por favor espera...</p>
+  </ng-template>
+
+  <!-- Error: Si hay un problema -->
+  <ng-template defer:error>
+    <p class="text-danger">Error al cargar los productos. Inténtalo de nuevo más tarde.</p>
+  </ng-template>
+
+  <!-- Contenido cuando los datos se hayan cargado -->
+  <ul class="product-list">
+    <li *ngFor="let product of products$ | async" class="product-item">
+      <strong>{{ product.title }}</strong> - ${{ product.price }}
+    </li>
+  </ul>
+</ng-container>
