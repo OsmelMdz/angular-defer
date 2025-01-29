@@ -1,0 +1,42 @@
+<div class="container my-5">
+  <button (click)="loadProducts()" class="btn btn-primary mb-4">Ver Productos</button>
+  <!-- Muestra el spinner de carga mientras 'loading' es verdadero -->
+  <ng-container *ngIf="loading; else defer">
+    <div class="spinner-container">
+      <div class="spinner-border text-primary" role="status">
+      </div>
+      <p class="alert">Cargando productos</p>
+    </div>
+  </ng-container>
+  <!-- 'defer' es el template que se muestra cuando 'loading' es falso -->
+  <ng-template #defer>
+    <!-- Si hay un mensaje de error, se muestra aquí -->
+    <ng-container *ngIf="errorMessage else products">
+      <p class="alert">{{ errorMessage }}</p>
+    </ng-container>
+
+    <ng-template #products>
+      <ul class="row" style="list-style-type: none; padding-left: 0;">
+        <li *ngFor="let product of products$ | async; trackBy: trackById" class="col-12 col-md-6 col-lg-4 mb-4">
+          <div class="card shadow-lg h-100">
+            <div class="card-body d-flex">
+              <img [src]="product.image" alt="{{ product.title }}" class="img-fluid rounded"
+                style="max-width: 150px; height: auto; margin-right: 15px;" loading="lazy" />
+              <div>
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">{{ product.price | currency }}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+  </ng-template>
+
+  <div class="pagination">
+    <button (click)="previousPage()" class="btn btn-secondary" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }}</span>
+    <button (click)="nextPage()" class="btn btn-secondary"
+      [disabled]="currentPage * pageSize >= allProducts.length">Siguiente</button>
+  </div>
+</div>
